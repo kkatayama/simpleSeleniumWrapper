@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-version = '0.0.6'
+version = '0.0.7'
 description = 'An easy-to-use wrapper for Selenium in Python. This package is intended to make writing web automation software in Python as painless as possible!'
 
 # Setting up
