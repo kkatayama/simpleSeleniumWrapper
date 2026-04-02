@@ -191,12 +191,22 @@ class WebdriverManager:
         #Get OS
         thisOS=str(platform.system()).lower()
 
+        #Support Mac
+        if thisOS == 'darwin':
+            if str(platform.machine()).lower() == 'x64':
+                thisOS = "mac-x"
+            else:
+                thisOS = "mac-arm"
+
         #Get architecture
         if thisOS!="windows":
             if sys.maxsize>2147483647:
                 thisOSArchitecture="64"
             else:
                 thisOSArchitecture="32"
+        elif 'mac' in thisOS:
+            thisOSArchitecture="64"
+
         else:
             thisOSArchitecture="32"
 
@@ -213,7 +223,9 @@ class WebdriverManager:
         #Get short name for os
         shortOSNames={
             'windows':'win',
-            'linux':'linux'
+            'linux':'linux',
+            'mac-x':'mac-x64',
+            'mac-arm':'mac-arm64'
         }
         shortOSName=shortOSNames[thisOS]
 
