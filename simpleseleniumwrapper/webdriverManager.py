@@ -224,8 +224,8 @@ class WebdriverManager:
         shortOSNames={
             'windows':'win',
             'linux':'linux',
-            'mac-x':'mac-x64',
-            'mac-arm':'mac-arm64'
+            'mac-x':'mac-x',
+            'mac-arm':'mac-arm'
         }
         shortOSName=shortOSNames[thisOS]
 
