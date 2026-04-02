@@ -8,7 +8,6 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import random
-from subprocess import CREATE_NO_WINDOW
 import string
 import requests
 import io
@@ -18,6 +17,13 @@ import warnings
 from functools import wraps
 import logging
 from datetime import datetime
+
+# Only define CREATE_NO_WINDOW if we are on Windows
+if os.name == 'nt':
+    from subprocess import CREATE_NO_WINDOW
+else:
+    CREATE_NO_WINDOW = 0
+
 
 #Error handler that shuts down driver on err
 def stop_driver_on_error(method):
